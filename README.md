@@ -9,6 +9,7 @@ While on the bike, you can turn them on and off with the default `E key` (this i
 
 
 ## Requierments
+Legal copy of Cyberpunk 2077
 Cyber Engine Tweaks ([NexusMods](https://www.nexusmods.com/cyberpunk2077/mods/107)/[GitHub](https://github.com/yamashi/CyberEngineTweaks/releases))
 
 
