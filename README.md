@@ -15,4 +15,4 @@ Cyber Engine Tweaks ([NexusMods](https://www.nexusmods.com/cyberpunk2077/mods/10
 ## Installation
 Unpack the `.zip` file and drop the `bin` folder in your Cyberpunk 2077 root directory.
 
-Alternatively download from the [NexusMods page](https://www.nexusmods.com/cyberpunk2077/mods/107) and install with [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/)
+Alternatively download from the [NexusMods page](https://www.nexusmods.com/cyberpunk2077/mods/5622) and install with [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/)
