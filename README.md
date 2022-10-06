@@ -28,9 +28,13 @@ Native Settings UI ([NexusMods](https://www.nexusmods.com/cyberpunk2077/mods/351
 Should be fully compatible with [1.6 Neon Rims Color Control](https://www.nexusmods.com/cyberpunk2077/mods/4204)
 
 
+## Translations
+I've added the ability to add proper translations to this mod. By default, this mod already contains a translation for English and German. Feel free to add your own translation mods! The files are located in the `languages` folder.
+
+
 ## Installation
 Unpack the `.zip` file and drop the `bin` folder in your Cyberpunk 2077 root directory.
 
 Alternatively download from the [NexusMods page](https://www.nexusmods.com/cyberpunk2077/mods/5622) and install with [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/)
 
-![Eastern Boundaries Thumbnail](/../main/resources/HeaderImage.png)
+![Thumbnail](/../main/resources/HeaderImage.png)
