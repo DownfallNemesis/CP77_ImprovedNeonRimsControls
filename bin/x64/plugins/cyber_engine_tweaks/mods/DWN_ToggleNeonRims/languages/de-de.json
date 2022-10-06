@@ -1,0 +1,10 @@
+{
+    "SettingsTabTitle":"Improved Neon Rims Controls",
+    "MainCategoryTitle":"Improved Neon Rims Controls",
+
+    "SwitchOnBikeTitle":"Neon Felgen beim aufsteigen auf ein Motorrad anschalten",
+    "SwitchOnBikeDesc":"Standarmäßig werde vom Spiel die Neon Felgen nicht angeschaltet, wenn man auf Motorrad steigt. Diese Einstellung schaltet die Neon Felgen beim aufsteigen auf ein Motorrad automatisch ein.",
+
+    "SwitchOffBikeTitle":"Neon Felgen beim absteigen von einem Motorrad anschalten",
+    "SwitchOffBikeDesc":"Standardmäßig werden vom Spiel alle Lichter ausgeschaltet, sobald ein Fahrzeug verlassen wird. Diese Einstellung schaltet die Neon Felgen beim absteigen von einem Motorrad automatisch wieder an."
+}
