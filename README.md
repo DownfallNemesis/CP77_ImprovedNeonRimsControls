@@ -1,4 +1,4 @@
-# Toggle Neon Rims While Off The Bike
+# Improved Neon Rims Controls
 This is a small CET script I made primarily for a friend to take screenshots with the neon rims being on while not sitting on the bike.
 
 
