@@ -3,21 +3,32 @@ DWN_ToggleNeonRims = {
         toggleKey = "Keyboard_0",
         turnOnWhenEnter = true,
         turnOnWhenExit = true,
+        applyOnlyOnBikes = false,
+        applyToggleOnlyOnBikes = false,
+        turnHeadlightsOn = true,
+        toggleHeadlights = true
     },
 
     scriptLogic = {
         playerInCar = false,
         playerLeftCar = false,
-        isNeonOn = false
+        isNeonOn = false,
+        isHeadlightOn = false
     },
 
     scriptObjects = {
-        vehicleController = nil
+        vehicleController = nil,
+        vehicleName = nil,
+        bikeNameArray = {}
+    },
+
+    folderPaths = {
+        languageFolder = "languages/"
     },
 
     neonControl = require("modules/neonControl"),
     settingsMenu = require("modules/settingsMenu"),
-    languageLoader = require("modules/languageLoader")
+    utilities = require("modules/utilities")
 }
 
 function DWN_ToggleNeonRims:new()
@@ -26,6 +37,7 @@ function DWN_ToggleNeonRims:new()
         settingsMenu.LoadUserSettings(self)
         settingsMenu.SetupMenu(self)
         neonControl.InitNeonControls(self)
+        self.scriptObjects.bikeNameArray = utilities.ReadBikeNames()
     end)
 end
 
