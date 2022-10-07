@@ -1,10 +1,21 @@
 {
     "SettingsTabTitle":"Improved Neon Rims Controls",
-    "MainCategoryTitle":"Improved Neon Rims Controls",
+    "MainCategoryTitle":"Improved Neon Rims Controls - General",
+    "BikesCategoryTitle":"Improved Neon Rims Controls - Nur Motorräder",
+    "HeadlightsCategoryTitle":"Improved Neon Rims Controls - Headlights extra",
 
     "SwitchOnBikeTitle":"Neon Felgen beim aufsteigen auf ein Motorrad anschalten",
     "SwitchOnBikeDesc":"Standarmäßig werde vom Spiel die Neon Felgen nicht angeschaltet, wenn man auf Motorrad steigt. Diese Einstellung schaltet die Neon Felgen beim aufsteigen auf ein Motorrad automatisch ein.",
-
     "SwitchOffBikeTitle":"Neon Felgen beim absteigen von einem Motorrad anschalten",
-    "SwitchOffBikeDesc":"Standardmäßig werden vom Spiel alle Lichter ausgeschaltet, sobald ein Fahrzeug verlassen wird. Diese Einstellung schaltet die Neon Felgen beim absteigen von einem Motorrad automatisch wieder an."
+    "SwitchOffBikeDesc":"Standardmäßig werden vom Spiel alle Lichter ausgeschaltet, sobald ein Fahrzeug verlassen wird. Diese Einstellung schaltet die Neon Felgen beim absteigen von einem Motorrad automatisch wieder an.",
+
+    "ApplyOnlyOnBikesTitle":"Die obigen Einstellungen nur für Neon Felgen anwenden",
+    "ApplyOnlyOnBikesDesc":"Standardmäßig werden alle Lichter, die vom Spiel als \"utility\" bezeichnet werden, mit dieser Mod gesteuert (z.B. Neon-Felgen, Polizei Blaulicht). Wenn diese Einstellung aktiviert ist, werden nur die tatsächlichen Neon-Felgen an Motorrädern gesteuert.", 
+    "ApplyToggleOnlyOnBikesTitle":"Den Toggle-Hotkey nur für Neon Felgen verwenden",
+    "ApplyToggleOnlyOnBikesDesc":"Standardmäßig werden alle Lichter, die vom Spiel als \"utility\" bezeichnet werden, mit dieser Mod gesteuert (z.B. Neon-Felgen, Polizei Blaulicht). Wenn diese Einstellung aktiviert ist, funktioniert der Toggle-Hotkey nur für Neon-Felgen an Motorrädern.",
+
+    "TurnHeadlightsOnTitle":"Scheinwerfer beim absteigen von einem Motorrad anschalten",
+    "TurnHeadlightsOnDesc":"ACHTUNG: Die Einstellungen aus der 'Nur Motorräder'-Kategorie werden auch hier angewendet.",
+    "ToggleHeadlightsTitle":"Scheinwerfer und Neon-Felgen gleichzeitig mit dem Toggle-Hotkey ein- und ausschalten",
+    "ToggleHeadlightsDesc":"ACHTUNG: Die Einstellungen aus der 'Nur Motorräder'-Kategorie werden auch hier angewendet."
 }
