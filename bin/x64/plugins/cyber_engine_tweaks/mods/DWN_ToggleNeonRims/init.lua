@@ -5,8 +5,8 @@ DWN_ToggleNeonRims = {
         turnOnWhenExit = true,
         applyOnlyOnBikes = false,
         applyToggleOnlyOnBikes = false,
-        turnHeadlightsOn = true,
-        toggleHeadlights = true
+        turnHeadlightsOn = false,
+        toggleHeadlights = false
     },
 
     scriptLogic = {

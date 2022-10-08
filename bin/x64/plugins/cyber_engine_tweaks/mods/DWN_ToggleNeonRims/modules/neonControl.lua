@@ -6,9 +6,12 @@ function neonControl.InitNeonControls(mod) -- mod = DWN_ToggleNeonRims
             mod.scriptLogic.playerLeftCar = false
             mod.scriptLogic.isNeonOn = true
             mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Utility)
-            if mod.settings.turnHeadlightsOn then -- Extra option to turn headlights on too
-                mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Head)
-                mod.scriptLogic.isHeadlightOn = true
+            if mod.settings.turnHeadlightsOn then  -- Extra option to turn headlights on too
+                if mod.settings.applyOnlyOnBikes and not utilities.IsValueInArray(mod.scriptObjects.bikeNameArray, mod.scriptObjects.vehicleName) then
+                else
+                    mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Head)
+                    mod.scriptLogic.isHeadlightOn = true
+                end
             end
         else
             mod.scriptLogic.playerLeftCar = false
