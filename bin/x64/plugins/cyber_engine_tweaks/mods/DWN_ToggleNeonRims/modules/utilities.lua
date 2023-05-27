@@ -21,7 +21,7 @@ end
 
 function Utilities.ReadBikeNames()
     local bikeNameArray = {}
-    local bikeListFile = io.open("files/bikeNames.txt", "r")
+    local bikeListFile = io.open("Files/BikeNames.txt", "r")
     for line in bikeListFile:lines() do
         table.insert(bikeNameArray, line)
     end

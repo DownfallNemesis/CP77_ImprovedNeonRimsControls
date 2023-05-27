@@ -26,10 +26,10 @@ DWN_ToggleNeonRims = {
         languageFolder = "languages/"
     },
 
-    NeonControl = require("modules/neonControl"),
-    SettingsMenu = require("modules/settingsMenu"),
-    Utilities = require("modules/utilities"),
-    InputManager = require("modules/inputManager")
+    NeonControl = require("modules/NeonControl"),
+    SettingsMenu = require("modules/SettingsMenu"),
+    Utilities = require("modules/Utilities"),
+    InputManager = require("modules/InputManager")
 }
 
 function DWN_ToggleNeonRims:new()
