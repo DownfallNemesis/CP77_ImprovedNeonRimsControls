@@ -4,6 +4,8 @@
     "BikesCategoryTitle":"Improved Neon Rims Controls - Bikes only",
     "HeadlightsCategoryTitle":"Improved Neon Rims Controls - Headlights extra",
 
+    "HotkeyTitle":"Neon Rims Toggle Key",
+    "HotkeyDescription":"Key to toggle neon rims on and off",
     "SwitchOnBikeTitle":"Turn neon rims on when getting on a bike",
     "SwitchOnBikeDesc":"By game default, neon rims are only on when you press the defined button while on a bike. This settings turns neon rims automatically on when getting on a bike.",
     "SwitchOffBikeTitle":"Turn neon rims on when getting off a bike",

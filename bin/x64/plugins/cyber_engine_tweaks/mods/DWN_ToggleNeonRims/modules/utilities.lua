@@ -37,9 +37,9 @@ function Utilities.IsValueInArray(array, val)
     end
 end
 
-function Utilities.GetLanguageData(mod)
+function Utilities.GetLanguageData()
     local gameLang = Game.NameToString(Game.GetSettingsSystem():GetVar("/language", "OnScreen"):GetValue())
-    local filePath = mod.folderPaths.languageFolder..gameLang
+    local filePath = DWN_ToggleNeonRims.folderPaths.languageFolder..gameLang
     local languageContent = Utilities.LoadJsonFile(filePath)
 
     --Fallback if language file is missing
@@ -51,6 +51,8 @@ function Utilities.GetLanguageData(mod)
             MainCategoryTitle = "Improved Neon Rims Controls - General",
             BikesCategoryTitle = "Improved Neon Rims Controls - Bikes only",
             HeadlightsCategoryTitle = "Improved Neon Rims Controls - Headlights extra",
+            HotkeyTitle = "Neon Rims Toggle Key",
+            HotkeyDescription = "Key to toggle neon rims on and off",
             SwitchOnBikeTitle = "Turn neon rims on when getting on a bike",
             SwitchOnBikeDesc = "By game default, neon rims are only on when you press the defined button while on a bike. This settings turns neon rims automatically on when getting on a bike.",
             SwitchOffBikeTitle = "Turn neon rims on when getting off a bike",

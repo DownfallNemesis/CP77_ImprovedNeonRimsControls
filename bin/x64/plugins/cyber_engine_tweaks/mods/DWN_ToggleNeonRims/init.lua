@@ -1,6 +1,6 @@
 DWN_ToggleNeonRims = {
     settings = {
-        toggleKey = "Keyboard_0",
+        toggleKey = "IK_0",
         turnOnWhenEnter = true,
         turnOnWhenExit = true,
         applyOnlyOnBikes = false,
@@ -26,17 +26,28 @@ DWN_ToggleNeonRims = {
         languageFolder = "languages/"
     },
 
-    neonControl = require("modules/neonControl"),
-    settingsMenu = require("modules/settingsMenu"),
-    utilities = require("modules/utilities")
+    NeonControl = require("modules/neonControl"),
+    SettingsMenu = require("modules/settingsMenu"),
+    Utilities = require("modules/utilities"),
+    InputManager = require("modules/inputManager")
 }
 
 function DWN_ToggleNeonRims:new()
     registerForEvent("onInit", function()
-        SettingsMenu.LoadUserSettings(self)
-        SettingsMenu.SetupMenu(self)
-        NeonControl.InitNeonControls(self)
+        -- Required codeware for the inputs
+        if not Codeware then
+            print("[Improved Neon Rims Control] Error: Missing Codeware")
+        end
+        
+        SettingsMenu.LoadUserSettings()
+        SettingsMenu.SetupMenu()
+        InputManager.onInit()
+        NeonControl.InitNeonControls()
         self.scriptObjects.bikeNameArray = Utilities.ReadBikeNames()
+    end)
+
+    registerForEvent("onShutdown", function ()
+        InputManager.onShutdown()
     end)
 end
 

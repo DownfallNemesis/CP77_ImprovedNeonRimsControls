@@ -1,85 +1,74 @@
 NeonControl = {}
 
-function NeonControl.InitNeonControls(mod) -- mod = DWN_ToggleNeonRims
-    Observe("PlayerPuppet", "OnAction", function(_, action)
-        if mod.scriptLogic.playerLeftCar and mod.settings.turnOnWhenExit then
-            mod.scriptLogic.playerLeftCar = false
-            mod.scriptLogic.isNeonOn = true
-            mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Utility)
-            if mod.settings.turnHeadlightsOn then  -- Extra option to turn headlights on too
-                if mod.settings.applyOnlyOnBikes and not utilities.IsValueInArray(mod.scriptObjects.bikeNameArray, mod.scriptObjects.vehicleName) then
+function NeonControl.InitNeonControls()
+    Observe("PlayerPuppet", "OnAction", function(_, action)    
+        if DWN_ToggleNeonRims.scriptLogic.playerLeftCar and DWN_ToggleNeonRims.settings.turnOnWhenExit then
+            DWN_ToggleNeonRims.scriptLogic.playerLeftCar = false
+            DWN_ToggleNeonRims.scriptLogic.isNeonOn = true
+            DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Utility)
+            if DWN_ToggleNeonRims.settings.turnHeadlightsOn then  -- Extra option to turn headlights on too
+                if DWN_ToggleNeonRims.settings.applyOnlyOnBikes and not Utilities.IsValueInArray(DWN_ToggleNeonRims.scriptObjects.bikeNameArray, DWN_ToggleNeonRims.scriptObjects.vehicleName) then
                 else
-                    mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Head)
-                    mod.scriptLogic.isHeadlightOn = true
+                    DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Head)
+                    DWN_ToggleNeonRims.scriptLogic.isHeadlightOn = true
                 end
             end
         else
-            mod.scriptLogic.playerLeftCar = false
-        end
-
-        if not mod.scriptLogic.playerInCar and mod.scriptObjects.vehicleController then
-            local actionName = Game.NameToString(action:GetName(action))
-            local actionType = action:GetType(action).value
-
-            if actionName == mod.settings.toggleKey then
-                if mod.settings.applyToggleOnlyOnBikes and not utilities.IsValueInArray(mod.scriptObjects.bikeNameArray, mod.scriptObjects.vehicleName) then
-                    return
-                else
-                    if actionType == 'BUTTON_PRESSED' then
-                        if mod.scriptLogic.isNeonOn == true then
-                            mod.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Utility)
-                        else
-                            mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Utility)
-                        end
-                        mod.scriptLogic.isNeonOn = not mod.scriptLogic.isNeonOn
-
-                        -- Extra option to toggle headlights with neon rims
-                        if mod.settings.toggleHeadlights then
-                            if mod.scriptLogic.isHeadlightOn == true then
-                                mod.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Head)
-                            else
-                                mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Head)
-                            end
-                            mod.scriptLogic.isHeadlightOn = not mod.scriptLogic.isHeadlightOn
-                        end
-                    end
-                end
-            end
+            DWN_ToggleNeonRims.scriptLogic.playerLeftCar = false
         end
     end)
 
     Observe("ExitingEvents", "OnEnter", function()
-        mod.scriptLogic.playerInCar = false
-        mod.scriptLogic.isNeonOn = false
-        mod.scriptLogic.isHeadlightOn = true -- To ensure neon rims and headlight lights state is the same
+        DWN_ToggleNeonRims.scriptLogic.playerInCar = false
+        DWN_ToggleNeonRims.scriptLogic.isNeonOn = false
+        DWN_ToggleNeonRims.scriptLogic.isHeadlightOn = true -- To ensure neon rims and headlight lights state is the same
     end)
 
     ObserveAfter("ExitingEvents", "OnExit", function()
-        mod.scriptLogic.playerLeftCar = true;
+        DWN_ToggleNeonRims.scriptLogic.playerLeftCar = true;
     end)
 
     Observe("DriveEvents", "OnEnter", function()
-        mod.scriptObjects.vehicleController = Game.GetMountedVehicle(GetPlayer()):GetVehicleComponent():GetVehicleController()
-        mod.scriptObjects.vehicleName = mod.utilities.GetVehicleName()
-        mod.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Head)
+        DWN_ToggleNeonRims.scriptObjects.vehicleController = Game.GetMountedVehicle(GetPlayer()):GetVehicleComponent():GetVehicleController()
+        DWN_ToggleNeonRims.scriptObjects.vehicleName = DWN_ToggleNeonRims.Utilities.GetVehicleName()
+        DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Head)
 
-        if mod.settings.applyOnlyOnBikes and not utilities.IsValueInArray(mod.scriptObjects.bikeNameArray, mod.scriptObjects.vehicleName) then
+        if DWN_ToggleNeonRims.settings.applyOnlyOnBikes and not Utilities.IsValueInArray(DWN_ToggleNeonRims.scriptObjects.bikeNameArray, DWN_ToggleNeonRims.scriptObjects.vehicleName) then
         else
-            if mod.settings.turnOnWhenEnter then
-                mod.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Utility)
-                mod.scriptLogic.isNeonOn = true
+            if DWN_ToggleNeonRims.settings.turnOnWhenEnter then
+                DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Utility)
+                DWN_ToggleNeonRims.scriptLogic.isNeonOn = true
             else
-                mod.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Utility)
-                mod.scriptLogic.isNeonOn = false;
+                DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Utility)
+                DWN_ToggleNeonRims.scriptLogic.isNeonOn = false;
             end
         end
-        mod.scriptLogic.playerInCar = true
+        DWN_ToggleNeonRims.scriptLogic.playerInCar = true
     end)
 
     if Game.GetMountedVehicle(GetPlayer()) then
-        mod.scriptObjects.vehicleController = Game.GetMountedVehicle(GetPlayer()):GetVehicleComponent():GetVehicleController()
-        mod.scriptObjects.vehicleName = mod.utilities.GetVehicleName()
-        mod.scriptLogic.playerInCar = true
+        DWN_ToggleNeonRims.scriptObjects.vehicleController = Game.GetMountedVehicle(GetPlayer()):GetVehicleComponent():GetVehicleController()
+        DWN_ToggleNeonRims.scriptObjects.vehicleName = DWN_ToggleNeonRims.Utilities.GetVehicleName()
+        DWN_ToggleNeonRims.scriptLogic.playerInCar = true
+    end
+end
+
+function NeonControl.ToggleNeons()
+    if DWN_ToggleNeonRims.scriptLogic.isNeonOn == true then
+        DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Utility)
+    else
+        DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Utility)
+    end
+    DWN_ToggleNeonRims.scriptLogic.isNeonOn = not DWN_ToggleNeonRims.scriptLogic.isNeonOn
+
+    -- Extra option to toggle headlights with neon rims
+    if DWN_ToggleNeonRims.settings.toggleHeadlights then
+        if DWN_ToggleNeonRims.scriptLogic.isHeadlightOn == true then
+            DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(false, vehicleELightType.Head)
+        else
+            DWN_ToggleNeonRims.scriptObjects.vehicleController:ToggleLights(true, vehicleELightType.Head)
+        end
+        DWN_ToggleNeonRims.scriptLogic.isHeadlightOn = not DWN_ToggleNeonRims.scriptLogic.isHeadlightOn
     end
 end
 
