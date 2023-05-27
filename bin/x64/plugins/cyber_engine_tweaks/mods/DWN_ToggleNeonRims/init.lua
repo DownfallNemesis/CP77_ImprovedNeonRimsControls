@@ -33,12 +33,6 @@ DWN_ToggleNeonRims = {
 
 function DWN_ToggleNeonRims:new()
     registerForEvent("onInit", function()
-
-        -- Codeware is required
-        if not Codeware then
-            print("[Improved Neon Rims Control] Error: Codeware not installed.")
-        end
-
         SettingsMenu.LoadUserSettings(self)
         SettingsMenu.SetupMenu(self)
         NeonControl.InitNeonControls(self)
