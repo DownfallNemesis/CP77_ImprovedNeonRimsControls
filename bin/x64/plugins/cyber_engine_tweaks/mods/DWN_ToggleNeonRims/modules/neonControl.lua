@@ -1,6 +1,6 @@
-neonControl = {}
+NeonControl = {}
 
-function neonControl.InitNeonControls(mod) -- mod = DWN_ToggleNeonRims
+function NeonControl.InitNeonControls(mod) -- mod = DWN_ToggleNeonRims
     Observe("PlayerPuppet", "OnAction", function(_, action)
         if mod.scriptLogic.playerLeftCar and mod.settings.turnOnWhenExit then
             mod.scriptLogic.playerLeftCar = false
@@ -83,4 +83,4 @@ function neonControl.InitNeonControls(mod) -- mod = DWN_ToggleNeonRims
     end
 end
 
-return neonControl
+return NeonControl

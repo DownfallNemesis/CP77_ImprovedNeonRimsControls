@@ -1,10 +1,10 @@
-settingsMenu = {}
+SettingsMenu = {}
 
-function settingsMenu.SetupMenu(mod)  -- mod = DWN_ToggleNeonRims
+function SettingsMenu.SetupMenu(mod)  -- mod = DWN_ToggleNeonRims
     local languageContent = mod.utilities.GetLanguageData(mod)
     local nativeSettings = GetMod("nativeSettings")
     if not nativeSettings then
-        print("Error: NativeSettings not found!")
+        print("[Improved Neon Rims Control] Error: NativeSettings UI not installed.")
         return
     end
 
@@ -16,40 +16,40 @@ function settingsMenu.SetupMenu(mod)  -- mod = DWN_ToggleNeonRims
     -- Settings cat1
     nativeSettings.addSwitch("/neon_rims_improvements/cat1", languageContent.SwitchOnBikeTitle, languageContent.SwitchOnBikeDesc, mod.settings.turnOnWhenEnter, true, function(state)
         mod.settings.turnOnWhenEnter = state
-        settingsMenu.SaveUserSettings(mod)
+        SettingsMenu.SaveUserSettings(mod)
     end)
 
     nativeSettings.addSwitch("/neon_rims_improvements/cat1", languageContent.SwitchOffBikeTitle, languageContent.SwitchOffBikeDesc, mod.settings.turnOnWhenExit, true, function(state)
         mod.settings.turnOnWhenExit = state
-        settingsMenu.SaveUserSettings(mod)
+        SettingsMenu.SaveUserSettings(mod)
     end)
 
     -- Settings cat2
     nativeSettings.addSwitch("/neon_rims_improvements/cat2", languageContent.ApplyOnlyOnBikesTitle, languageContent.ApplyOnlyOnBikesDesc, mod.settings.applyOnlyOnBikes, false, function(state)
         mod.settings.applyOnlyOnBikes = state
-        settingsMenu.SaveUserSettings(mod)
+        SettingsMenu.SaveUserSettings(mod)
     end)
 
     nativeSettings.addSwitch("/neon_rims_improvements/cat2", languageContent.ApplyToggleOnlyOnBikesTitle, languageContent.ApplyToggleOnlyOnBikesDesc, mod.settings.applyToggleOnlyOnBikes, false, function(state)
         mod.settings.applyToggleOnlyOnBikes = state
-        settingsMenu.SaveUserSettings(mod)
+        SettingsMenu.SaveUserSettings(mod)
     end)
 
     -- Settings cat3
     nativeSettings.addSwitch("/neon_rims_improvements/cat3", languageContent.TurnHeadlightsOnTitle, languageContent.TurnHeadlightsOnDesc, mod.settings.turnHeadlightsOn, false, function(state)
         mod.settings.turnHeadlightsOn = state
-        settingsMenu.SaveUserSettings(mod)
+        SettingsMenu.SaveUserSettings(mod)
     end)
 
     nativeSettings.addSwitch("/neon_rims_improvements/cat3", languageContent.ToggleHeadlightsTitle, languageContent.ToggleHeadlightsDesc, mod.settings.toggleHeadlights, false, function(state)
         mod.settings.toggleHeadlights = state
-        settingsMenu.SaveUserSettings(mod)
+        SettingsMenu.SaveUserSettings(mod)
     end)
 
     nativeSettings.refresh()
 end
 
-function settingsMenu.LoadUserSettings(mod)
+function SettingsMenu.LoadUserSettings(mod)
     local file = io.open('settings.json', 'r')
     if file ~= nil then
         local contents = file:read("*a")
@@ -66,7 +66,7 @@ function settingsMenu.LoadUserSettings(mod)
     end
 end
 
-function settingsMenu.SaveUserSettings(mod)
+function SettingsMenu.SaveUserSettings(mod)
     local validJson, contents = pcall(function() return json.encode(mod.settings) end)
 
     if validJson and contents ~= nil then
@@ -76,4 +76,4 @@ function settingsMenu.SaveUserSettings(mod)
     end
 end
 
-return settingsMenu
+return SettingsMenu

@@ -1,6 +1,6 @@
-utilities = {}
+Utilities = {}
 
-function utilities.GetVehicleName()
+function Utilities.GetVehicleName()
     local vehicleName = Game.GetMountedVehicle(Game.GetPlayer()):GetDisplayName()
     vehicleName = vehicleName:gsub(" ", "_")
     vehicleName = vehicleName:gsub("\"", "")
@@ -9,7 +9,7 @@ function utilities.GetVehicleName()
     return vehicleName
 end
 
-function utilities.LoadJsonFile(filePath)
+function Utilities.LoadJsonFile(filePath)
     local jsonFile = io.open(filePath..".json", "r")
     if not jsonFile then return nil end
 
@@ -19,7 +19,7 @@ function utilities.LoadJsonFile(filePath)
     return jsonContent
 end
 
-function utilities.ReadBikeNames()
+function Utilities.ReadBikeNames()
     local bikeNameArray = {}
     local bikeListFile = io.open("files/bikeNames.txt", "r")
     for line in bikeListFile:lines() do
@@ -29,7 +29,7 @@ function utilities.ReadBikeNames()
     return bikeNameArray
 end
 
-function utilities.IsValueInArray(array, val)
+function Utilities.IsValueInArray(array, val)
     for index, value in ipairs(array) do
         if value == val then
             return true
@@ -37,10 +37,10 @@ function utilities.IsValueInArray(array, val)
     end
 end
 
-function utilities.GetLanguageData(mod)
+function Utilities.GetLanguageData(mod)
     local gameLang = Game.NameToString(Game.GetSettingsSystem():GetVar("/language", "OnScreen"):GetValue())
     local filePath = mod.folderPaths.languageFolder..gameLang
-    local languageContent = utilities.LoadJsonFile(filePath)
+    local languageContent = Utilities.LoadJsonFile(filePath)
 
     --Fallback if language file is missing
     if not languageContent then
@@ -69,4 +69,4 @@ function utilities.GetLanguageData(mod)
     return languageContent
 end
 
-return utilities
+return Utilities
